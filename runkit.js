@@ -108,6 +108,7 @@ exports.endpoint = function (request, response) {
 
   fetch(r, m)
     .then(data => {
+      response.setHeader('Access-Control-Allow-Origin', '*')
       response.end(JSON.stringify(data))
     })
     .catch(e => {

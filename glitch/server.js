@@ -102,10 +102,10 @@ function fetch (registry, module) {
     })
 }
 
-const micro = require('micro')
 const qs = require('qs')
 
 module.exports = (request, response) => {
   let {r, m} = qs.parse(request.url.split('?')[1])
+  response.setHeader('Access-Control-Allow-Origin', '*')
   return fetch(r, m)
 }
